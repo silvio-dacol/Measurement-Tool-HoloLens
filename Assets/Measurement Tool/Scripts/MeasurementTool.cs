@@ -173,10 +173,10 @@ public class MeasurementTool : MonoBehaviour
                         //I print the coordinates on the canvas
                         GameObject.Find("Measure " + usefulVariables.measureNumber).GetComponentInChildren<TMP_Text>().text =
                             "Measure " + usefulVariables.measureNumber + "\n" +
-                            "x = " + (float)System.Math.Round((point1.x - point0.x) * 100, 0) + " cm\n" +
-                            "y = " + (float)System.Math.Round((point1.y - point0.y) * 100, 0) + " cm\n" +
-                            "z = " + (float)System.Math.Round((point1.z - point0.z) * 100, 0) + " cm\n" +
-                            "d = " + (float)System.Math.Round((distance.magnitude) * 100, 0) + " cm\n";
+                            "DeltaX = " + Mathf.Abs((float)System.Math.Round((point1.x - point0.x) * 100, 0)) + " cm\n" +
+                            "DeltaY = " + Mathf.Abs((float)System.Math.Round((point1.z - point0.z) * 100, 0)) + " cm\n" +
+                            "DeltaZ = " + Mathf.Abs((float)System.Math.Round((point1.y - point0.y) * 100, 0)) + " cm\n" +
+                            "D = " + Mathf.Abs((float)System.Math.Round((distance.magnitude) * 100, 0)) + " cm\n";
                     }
                 }
             }
@@ -208,7 +208,7 @@ public class MeasurementTool : MonoBehaviour
         }
     }
     
-    void DeleteAll()
+    public void DeleteAll()
     {
         //Declare the UsefulVariables object
         usefulVariables = FindObjectOfType<UsefulVariables>();
